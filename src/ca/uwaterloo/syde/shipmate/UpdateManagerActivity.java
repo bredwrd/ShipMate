@@ -1,10 +1,10 @@
 package ca.uwaterloo.syde.shipmate;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
 import ca.uwaterloo.syde.shipmate.R;
-
 import ca.uwaterloo.syde.shipmate.control.DataUpdaterService;
 
 public class UpdateManagerActivity extends Activity {
@@ -18,7 +18,8 @@ public class UpdateManagerActivity extends Activity {
 	    setContentView(R.layout.update_manager_layout);
 	    displayMessage("Loading...");
 	    dataUpdaterService.updateNodeSources();
-	    //call homeActivity
+	    Intent intent = new Intent(this, HomeActivity.class);
+	    this.startActivity(intent);
 	}
 	
 	private void displayMessage(String message) {

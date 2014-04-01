@@ -1,8 +1,12 @@
 <resources>
 
     <string name="app_name">ShipMate</string>
-    <string name="location_text">Location</string>
-    <string name="get_address_button">Get Address</string>
+    <string name="intro_text">Welcome to the ShipMate!</string>
+    <string name="to_text">To:</string>
+    <string name="from_text">From:</string>
+    <string name="textbox_text">Enter Postal Code</string>
     <string name="address_text">Address</string>
-
+    <string name="run_button_text">Run</string>
+    <string name="res">Find to location</string>
+	
 </resources>

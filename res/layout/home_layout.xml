@@ -1,25 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    >
-    <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/location_text"
-    />
-    
-  <Button
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:hint="@string/get_address_button"
-    />
-  
-  <TextView
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:hint="@string/address_text"
-   />
+    android:orientation="vertical" >
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/runResults"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/runResults"
+        android:hint="@string/intro_text" />
+
+    <Button
+        android:id="@+id/run_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="25dp"
+        android:hint="@string/run_button_text" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginTop="19dp"
+        android:hint="@string/to_text" />
+
+    <ImageButton
+        android:id="@+id/from_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/to_button"
+        android:layout_alignTop="@+id/from_postal_code"
+        android:contentDescription="@string/res"
+        android:onClick="AddressButton_OnClick"
+        android:src="@drawable/map_pin" />
+
+    <EditText
+        android:id="@+id/to_postal_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView1"
+        android:ems="10"
+        android:hint="@string/textbox_text" >
+
+        <requestFocus />
+    </EditText>
+
+    <ImageButton
+        android:id="@+id/to_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/to_postal_code"
+        android:layout_marginRight="26dp"
+        android:contentDescription="@string/res"
+        android:onClick="AddressButton_OnClick"
+        android:src="@drawable/map_pin" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/to_button"
+        android:layout_marginTop="50dp"
+        android:hint="@string/from_text" />
+
+    <EditText
+        android:id="@+id/from_postal_code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:ems="10"
+        android:hint="@string/textbox_text" />
+
+</RelativeLayout>
