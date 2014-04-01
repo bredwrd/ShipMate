@@ -7,20 +7,19 @@
     <TextView
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:text="location"
-      android:id="@+id/location_text"
+      android:hint="@string/location_text"
     />
+    
   <Button
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/get_address_button"
-    android:text="Get Address"
+    android:hint="@string/get_address_button"
     />
+  
   <TextView
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
-      android:text="address"
-      android:id="@+id/address_text"
+      android:hint="@string/address_text"
    />
 
 </LinearLayout>
