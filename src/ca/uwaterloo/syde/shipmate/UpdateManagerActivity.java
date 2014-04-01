@@ -18,6 +18,7 @@ public class UpdateManagerActivity extends Activity {
 	    setContentView(R.layout.update_manager_layout);
 	    displayMessage("Loading...");
 	    dataUpdaterService.updateNodeSources();
+	    //call homeActivity
 	}
 	
 	private void displayMessage(String message) {
