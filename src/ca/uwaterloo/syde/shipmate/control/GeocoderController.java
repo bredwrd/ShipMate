@@ -12,18 +12,17 @@ import android.location.Location;
 import android.location.LocationManager;
 
 public class GeocoderController {
-	Context context;
 	public GeocoderController(){
 		
 	}
 	
-	public String getPostalCode() {
-		//double lng = getLong();
-		//double lat = getLat();
+	public String getPostalCode(Context context) {
+		double lng = getLong(context);
+		double lat = getLat(context);
 		List<Address> addresses = null;
 		Geocoder geocoder = new Geocoder(context, Locale.ENGLISH);
 		try {
-			addresses = geocoder.getFromLocation(49.891, -97.168, 1);
+			addresses = geocoder.getFromLocation(lng, lat, 1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,13 +30,13 @@ public class GeocoderController {
 		return addresses.get(0).toString();
 	}
 	
-	private double getLong(){
+	private double getLong(Context context){
 		LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE); 
 		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		double longitude = location.getLongitude();
 		return longitude;
 	}
-	private double getLat(){
+	private double getLat(Context context){
 		LocationManager lm = (LocationManager)context.getSystemService(Context.LOCATION_SERVICE); 
 		Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 		double latitude = location.getLatitude();
