@@ -5,7 +5,7 @@ import java.io.IOException;
 import ca.uwaterloo.syde.shipmate.control.DataUpdaterService;
 import ca.uwaterloo.syde.shipmate.control.DeliveryStandardCalculator;
 import ca.uwaterloo.syde.shipmate.control.DomesticLettermailDeliveryStandardCalculator;
-import ca.uwaterloo.syde.shipmate.control.GPSTracker;
+//import ca.uwaterloo.syde.shipmate.control.GPSTracker;
 import ca.uwaterloo.syde.shipmate.control.GeocoderController;
 import ca.uwaterloo.syde.shipmate.entity.PostalCode;
 import android.app.Activity;
@@ -22,11 +22,12 @@ public class HomeActivity extends Activity {
 	DataUpdaterService dataUpdaterService = new DataUpdaterService();
 	DeliveryStandardCalculator deliveryStandardCalculator;
 	GeocoderController geocoderController = new GeocoderController();
-	GPSTracker gpsTracker = new GPSTracker(this);
+	//GPSTracker gpsTracker = new GPSTracker(this);
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		setContentView(R.layout.home_layout);
+		Button runButton = findViewById();
 	}
 	public void AddressButton_OnClick(View v) {
 		gpsTracker.getLocation();
@@ -44,5 +45,4 @@ public class HomeActivity extends Activity {
 			//tv2.setText("L3T 2H5");
 		}
 		
-	}
-}
+d}

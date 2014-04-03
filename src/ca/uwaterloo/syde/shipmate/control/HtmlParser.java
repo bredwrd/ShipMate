@@ -17,36 +17,31 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+
 /*
  * This class parses local html tables into RAM for use by the application's
  * various lookups.
  */
 public class HtmlParser {
-
-	// paths for html files pulled from Canada Post's website
-	private final String cleanRemoteHtmlFilePath = "/tmp/brian/canadaShipping/remoteLookup.html";
-
-	// Data for postal source/destinations definitions
-	private NodeList remoteNodes;
-	private NodeList majorUsCities;
-	private NodeList xpresspostUsaDpfNodes;
-
-	// METHODS
-
-	public void parseRemoteLookupFile() {
+	private static NodeList remoteLookup;
+	private static NodeList dpfLookup;
+		
+	public NodeList parseRemoteLookupFile(String remoteXml) {
+		Object result = null;
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory
 					.newInstance();
 			DocumentBuilder builder = docBuilderFactory.newDocumentBuilder();
-			docBuilderFactory.setNamespaceAware(true); // never forget this!
+			InputSource source = new InputSource(new StringReader(remoteXml));
+			Document doc = builder.parse(source);
+			docBuilderFactory.setNamespaceAware(true);
 
-			Document doc = builder.parse(cleanRemoteHtmlFilePath);
 			XPathFactory factory = XPathFactory.newInstance();
 			XPath xpath = factory.newXPath();
 
-			XPathExpression expr = xpath.compile("//tr/td");
-			Object result = expr.evaluate(doc, XPathConstants.NODESET);
-			remoteNodes = (NodeList) result;
+			XPathExpression expr = xpath.compile("//table/tr/td");
+			result = expr.evaluate(doc, XPathConstants.NODESET);
+			remoteLookup = (NodeList) result;
 
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
@@ -61,10 +56,13 @@ public class HtmlParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		return remoteLookup;
 	}
 
 	public NodeList parseDpfLookupFile(String dpfXml)
 	{
+		System.out.println(dpfXml);
 		Object result = null;
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
@@ -75,9 +73,9 @@ public class HtmlParser {
 			XPathFactory factory = XPathFactory.newInstance();
 			XPath xpath = factory.newXPath();
 			
-			XPathExpression expr = xpath.compile("//tr/td");
+			XPathExpression expr = xpath.compile("//table/tr/td");
 		    result = expr.evaluate(doc, XPathConstants.NODESET);		    
-	
+		    dpfLookup = (NodeList) result;
 		} catch (SAXException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -91,7 +89,7 @@ public class HtmlParser {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return (NodeList) result;
+		return dpfLookup;
 	}
 
 
