@@ -14,14 +14,18 @@ public class ForwardStationArea {
 
 	// VARIABLES
 
-	private String fsaName = ""; // first three digits of the postal code (e.g.
+	private String key = ""; // first three digits of the postal code (e.g.
 									// A0E)
 	private boolean valid = false; // is format ok (i.e. letter-number-letter)
 	private boolean major = false; // is a major, not a minor FSA
-	private String dpfName = ""; // Dedicated Processing Facility city name
+	private String dpfKey = ""; // Dedicated Processing Facility city name
 									// associated with the FSA
 
 	// GETTERS & SETTERS
+	
+	public String getKey() {
+		return key;
+	}
 
 	public boolean getMajor() {
 		return major;
@@ -31,14 +35,14 @@ public class ForwardStationArea {
 		return valid;
 	}
 
-	public String getDpfName() {
-		return dpfName;
+	public String getDpfKey() {
+		return dpfKey;
 	}
 
 	// CONSTRUCTOR
 
 	public ForwardStationArea(String name) {
-		fsaName = name;
+		key = name;
 		valid = determineIfValid();
 		determineDpfNameAndIfMajor();
 	}
@@ -55,7 +59,7 @@ public class ForwardStationArea {
 		// found
 		Pattern validFsaPattern = Pattern
 				.compile("[ABCEGHJKLMNPRSTVXY]\\d[A-Z]");
-		Matcher validFsaMatcher = validFsaPattern.matcher(fsaName);
+		Matcher validFsaMatcher = validFsaPattern.matcher(key);
 		if (validFsaMatcher.find()) {
 			rtnBoolean = true;
 		}
@@ -77,23 +81,23 @@ public class ForwardStationArea {
 
 			String listOfMajorFsa = dpfNodeData.item(listOfMajorFsaIndex)
 					.getTextContent().replaceAll("\\s", "");
-			if (listOfMajorFsa.contains(fsaName)
+			if (listOfMajorFsa.contains(key)
 					|| determineIfRangedListContainsFsa(listOfMajorFsa)) {
 				// is major
 
 				major = true;
-				dpfName = tmpDpfName;
+				dpfKey = tmpDpfName;
 				break;
 			}
 
 			String listOfNonMajorFsa = dpfNodeData.item(listOfNonMajorFsaIndex)
 					.getTextContent().replaceAll("\\s", "");
-			if (listOfNonMajorFsa.contains(fsaName)
+			if (listOfNonMajorFsa.contains(key)
 					|| determineIfRangedListContainsFsa(listOfNonMajorFsa)) {
 				// is minor
 
 				major = false;
-				dpfName = tmpDpfName;
+				dpfKey = tmpDpfName;
 				break;
 			}
 		}
@@ -124,8 +128,8 @@ public class ForwardStationArea {
 			rangeEndMatcher.find();
 			String tmpRangeEnd = rangeEndMatcher.group();
 
-			if (fsaName.compareTo(tmpRangeStart) > 0
-					&& fsaName.compareTo(tmpRangeEnd) < 0) {
+			if (key.compareTo(tmpRangeStart) > 0
+					&& key.compareTo(tmpRangeEnd) < 0) {
 				rtnBoolean = true;
 			}
 		}

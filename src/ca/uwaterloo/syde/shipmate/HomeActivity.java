@@ -15,11 +15,14 @@ public class HomeActivity extends Activity {
 	//TODO TextView updateStatusText;
 	DataUpdaterService dataUpdaterService = new DataUpdaterService();
 	DeliveryStandardCalculator deliveryStandardCalculator;
-	GPSTracker gpsTracker = new GPSTracker(this);
+	GPSTracker gpsTracker;
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		setContentView(R.layout.home_layout);
+		
+		gpsTracker = new GPSTracker(this);
+		
 		Button runButton = (Button) findViewById(R.id.run_button);
 		runButton.setOnClickListener(new Button.OnClickListener() {  
 	        public void onClick(View v)
