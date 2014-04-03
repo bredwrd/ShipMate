@@ -7,6 +7,8 @@ import org.w3c.dom.NodeList;
 
 public class NodeDatabase {
 	private static NodeList fsaDpfLookup;
+	private static NodeList remoteLookup;
+	
 	private Map remoteNodes = new HashMap();
 	private Map dpfNodes = new HashMap<String, DedicatedProcessingFacility>();
 
@@ -16,14 +18,18 @@ public class NodeDatabase {
 	}
 
 	public NodeDatabase() {
-
+		
 	}
 	
-	public static void setFsaDpfLookup(NodeList fsaDpfLookup) {
-		NodeDatabase.fsaDpfLookup = fsaDpfLookup;
+	public static void setFsaDpfLookup(NodeList temp_fsaDpfLookup) {
+		NodeDatabase.fsaDpfLookup = temp_fsaDpfLookup;
 	}
 	public static NodeList getFsaDpfLookup() {
 		return fsaDpfLookup;
+	}
+	
+	public static void setRemoteLookup(NodeList temp_remoteLookup) {
+		NodeDatabase.remoteLookup = temp_remoteLookup;
 	}
 
 	/*

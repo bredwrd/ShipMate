@@ -3,7 +3,7 @@
     android:versionCode="1"
     android:versionName="1.0" >
 	<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
@@ -21,5 +21,5 @@
         </activity>
         <activity android:name="HomeActivity"></activity>
     </application>
-
+	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
