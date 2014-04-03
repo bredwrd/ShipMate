@@ -4,10 +4,8 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import android.app.AlertDialog;
 import android.app.Service;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -37,7 +35,7 @@ public class GPSTracker extends Service implements LocationListener
     //The minimum distance to change updates in metters
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; //10 metters
 
-    //The minimum time beetwen updates in milliseconds
+    //The minimum time between updates in milliseconds
     private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1; // 1 minute
 
     //Declaring a Location Manager
