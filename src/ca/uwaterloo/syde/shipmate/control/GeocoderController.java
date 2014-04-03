@@ -27,7 +27,7 @@ public class GeocoderController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return addresses.get(0).toString();
+		return addresses.get(0).getPostalCode();
 	}
 	
 	private double getLong(Context context){
