@@ -16,6 +16,11 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.util.Log;
 
+/**
+ * GPSTracker get's current location and uses the Geocoder library to determine the Postal Code
+ * @author Frank
+ *
+ */
 public class GPSTracker extends Service implements LocationListener
 {
     private final Context mContext;
@@ -124,19 +129,6 @@ public class GPSTracker extends Service implements LocationListener
     }
 
     /**
-     * Stop using GPS listener
-     * Calling this function will stop using GPS in your app
-     */
-
-    public void stopUsingGPS()
-    {
-        if (locationManager != null)
-        {
-            locationManager.removeUpdates(GPSTracker.this);
-        }
-    }
-
-    /**
      * Function to get latitude
      */
     public double getLatitude()
@@ -196,47 +188,7 @@ public class GPSTracker extends Service implements LocationListener
 
         return null;
     }
-
-    /**
-     * Try to get AddressLine
-     * @return null or addressLine
-     */
-    public String getAddressLine(Context context)
-    {
-        List<Address> addresses = getGeocoderAddress(context);
-        if (addresses != null && addresses.size() > 0)
-        {
-            Address address = addresses.get(0);
-            String addressLine = address.getAddressLine(0);
-
-            return addressLine;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
-    /**
-     * Try to get Locality
-     * @return null or locality
-     */
-    public String getLocality(Context context)
-    {
-        List<Address> addresses = getGeocoderAddress(context);
-        if (addresses != null && addresses.size() > 0)
-        {
-            Address address = addresses.get(0);
-            String locality = address.getLocality();
-
-            return locality;
-        }
-        else
-        {
-            return null;
-        }
-    }
-
+    
     /**
      * Try to get Postal Code
      * @return null or postalCode
@@ -250,6 +202,26 @@ public class GPSTracker extends Service implements LocationListener
             String postalCode = address.getPostalCode();
 
             return postalCode;
+        }
+        else
+        {
+            return null;
+        }
+    }
+    
+    /**
+     * Try to get AddressLine
+     * @return null or addressLine
+     */
+    public String getAddressLine(Context context)
+    {
+        List<Address> addresses = getGeocoderAddress(context);
+        if (addresses != null && addresses.size() > 0)
+        {
+            Address address = addresses.get(0);
+            String addressLine = address.getAddressLine(0);
+
+            return addressLine;
         }
         else
         {
@@ -276,7 +248,8 @@ public class GPSTracker extends Service implements LocationListener
             return null;
         }
     }
-
+    
+    //Required methods
     @Override
     public void onLocationChanged(Location location) 
     {   

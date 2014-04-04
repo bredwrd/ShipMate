@@ -54,8 +54,10 @@ public class HomeActivity extends Activity {
 	}
 	
 	/**
-	 * 
-	 * @param v
+	 * AddressButton_OnClick listens on a button click 
+	 * and starts a thread for the long process of 
+	 * returning the current location's Postal Code
+	 * @param v - the button that gets clicked
 	 * @author Frank Alfieri
 	 */
 	public void AddressButton_OnClick(final View v) {
@@ -63,20 +65,28 @@ public class HomeActivity extends Activity {
 		Thread thread = new Thread(){
 			String address_text;
 	        public void run() {
+	        	//Run required location service methods to get the location's Postal Code
 				gpsTracker.getLocation();
 				gpsTracker.getLongitude();
 				gpsTracker.getLatitude();
+				//Use collected data and get the Postal code from Geocoder services.
+				//Returns the Postal Code
 			    address_text = gpsTracker.getGeocoderAddress(context).get(0).getPostalCode();
-	        	runOnUiThread(new Runnable() {
+			    /* Passes the necessary code to the application with
+		         * runOnUiThread(). The parameter is an anonymous Runnable object that
+		         * contains the Java statements put in it by its run() method.
+		        */
+			    runOnUiThread(new Runnable() {
 					public void run() {
-						//Set text
+						//Add the Postal Code text to the field on the UI
 						editText.setText(address_text);
-						//stop spinning wheel
+						//Stop spinning wheel (Task is done)
 				        progress.setVisibility(View.INVISIBLE);
 					}
 	            });
 	        }
         };
+        //Check which button is being pressed
         if (v.getId() == R.id.to_button){
 			editText = (EditText)findViewById(R.id.to_postal_code);
         	progress = (ProgressBar) findViewById(R.id.to_gpsStatusProgress);
@@ -85,7 +95,7 @@ public class HomeActivity extends Activity {
 			editText = (EditText)findViewById(R.id.from_postal_code);
         	progress = (ProgressBar) findViewById(R.id.from_gpsStatusProgress);
         }
-		// Start spinning wheel.
+		// Start spinning wheel (Long task begins)
         progress.setVisibility(View.VISIBLE);
         thread.start();
 	}
