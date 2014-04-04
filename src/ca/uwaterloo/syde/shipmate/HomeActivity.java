@@ -36,7 +36,7 @@ public class HomeActivity extends Activity {
 	        	PostalCode fromPostalCode = new PostalCode(fromPostalCodeField.getText().toString());
 	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode);
 	        	TextView myAwesomeTextView = (TextView)findViewById(R.id.runResults);
-	        	myAwesomeTextView.setText(deliveryStandardCalculator.getDeliveryStandard() + "!!!");
+	        	myAwesomeTextView.setText("Delivery Standard: " + deliveryStandardCalculator.getDeliveryStandard());
             }
          });
 	}

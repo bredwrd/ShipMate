@@ -18,16 +18,18 @@ public final class R {
         public static final int from_button=0x7f060008;
         public static final int from_gpsStatusProgress=0x7f060007;
         public static final int from_postal_code=0x7f060006;
-        public static final int runResults=0x7f060009;
-        public static final int run_button=0x7f06000a;
+        public static final int runResults=0x7f06000a;
+        public static final int run_button=0x7f06000c;
         public static final int textView1=0x7f060001;
         public static final int textView2=0x7f060000;
         public static final int textView3=0x7f060005;
+        public static final int textView4=0x7f060009;
+        public static final int textView5=0x7f06000b;
         public static final int to_button=0x7f060004;
         public static final int to_gpsStatusProgress=0x7f060003;
         public static final int to_postal_code=0x7f060002;
-        public static final int updateStatusProgress=0x7f06000b;
-        public static final int updateStatusText=0x7f06000c;
+        public static final int updateStatusProgress=0x7f06000d;
+        public static final int updateStatusText=0x7f06000e;
     }
     public static final class layout {
         public static final int home_layout=0x7f030000;
