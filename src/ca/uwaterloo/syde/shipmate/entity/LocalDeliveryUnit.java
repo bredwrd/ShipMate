@@ -13,7 +13,7 @@ public class LocalDeliveryUnit {
 	}
 	
 	public LocalDeliveryUnit(String key){
-		
+		this.key = key;
 	}
 	
 	/* checks a list containing a mix of individual and ranged LDUs
