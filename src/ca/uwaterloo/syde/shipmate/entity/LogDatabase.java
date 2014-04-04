@@ -18,18 +18,18 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class LogDatabase extends SQLiteOpenHelper {
 	
 	private static final String TABLE_LOG =  "Log";
+	private static final String DATABASE_NAME = "LogDatabase";
 	private static final String KEY_ID = "Key";
 	private static final String KEY_ORIGIN = "Origin";
 	private static final String KEY_DESTINATION = "Destination";
 	private static final String KEY_SHIPPING_TYPE="ShippingType";
 	private static final String KEY_DATE="Date";
 	private static final String KEY_DELIVERY_STANDARD = "DELIVERY STANDARD";
+	private static final int DATABASE_VERSION = 1;
 
-	public LogDatabase(Context context, String name, CursorFactory factory,
-			int version) {
-		super(context, name, factory, version);
-		// TODO Auto-generated constructor stub
-	}
+    public LogDatabase(Context context) {
+        super(context, DATABASE_NAME, null, DATABASE_VERSION);
+    }
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
@@ -86,7 +86,7 @@ public class LogDatabase extends SQLiteOpenHelper {
     } 
  
     // Getting contacts Count
-    public int getContactsEntries() {
+    public int getEntriesCount() {
         String countQuery = "SELECT  * FROM " + TABLE_LOG;
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(countQuery, null);
