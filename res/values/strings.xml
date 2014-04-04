@@ -1,7 +1,7 @@
 <resources>
 
     <string name="app_name">ShipMate</string>
-    <string name="intro_text">Welcome to the ShipMate!</string>
+    <string name="intro_text">Welcome to ShipMate!</string>
     <string name="to_text">To:</string>
     <string name="from_text">From:</string>
     <string name="textbox_text">Enter Postal Code</string>
