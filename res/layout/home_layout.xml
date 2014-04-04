@@ -12,12 +12,14 @@
 
         <TextView
             android:id="@+id/textView2"
+            android:textSize="30sp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/intro_text" />
 
         <TextView
             android:id="@+id/textView1"
+            android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="19dp"
@@ -33,6 +35,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:textSize="20sp"
                 android:hint="@string/textbox_text" />
 
             <ProgressBar
@@ -54,6 +57,7 @@
 
         <TextView
             android:id="@+id/textView3"
+            android:textSize="25sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -68,20 +72,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:textSize="20sp"
                 android:ems="10"
                 android:hint="@string/textbox_text" >
 
                 <requestFocus />
             </EditText>
-            
-			<ProgressBar
+
+            <ProgressBar
                 android:id="@+id/from_gpsStatusProgress"
                 style="?android:attr/progressBarStyleLarge"
                 android:layout_width="35dp"
                 android:layout_height="35dp"
                 android:layout_marginRight="28dp"
                 android:visibility="invisible" />
-			
+
             <ImageButton
                 android:id="@+id/from_button"
                 android:layout_width="wrap_content"
@@ -90,12 +95,15 @@
                 android:onClick="AddressButton_OnClick"
                 android:src="@drawable/map_pin" />
         </LinearLayout>
-    </LinearLayout>
 
-    <TextView
-        android:id="@+id/runResults"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/runResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="35sp"
+            android:layout_weight="0.11" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/run_button"

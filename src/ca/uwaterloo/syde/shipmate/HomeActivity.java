@@ -1,6 +1,5 @@
 package ca.uwaterloo.syde.shipmate;
 
-import ca.uwaterloo.syde.shipmate.control.DataUpdaterService;
 import ca.uwaterloo.syde.shipmate.control.DeliveryStandardCalculator;
 import ca.uwaterloo.syde.shipmate.control.DomesticLettermailDeliveryStandardCalculator;
 import ca.uwaterloo.syde.shipmate.control.GPSTracker;
@@ -12,10 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 public class HomeActivity extends Activity {
 	//TODO TextView updateStatusText;
-	private DataUpdaterService dataUpdaterService = new DataUpdaterService();
 	private DeliveryStandardCalculator deliveryStandardCalculator;
 	private GPSTracker gpsTracker;
 	private ProgressBar progress;
@@ -36,6 +35,8 @@ public class HomeActivity extends Activity {
 	        	PostalCode toPostalCode = new PostalCode(toPostalCodeField.getText().toString());
 	        	PostalCode fromPostalCode = new PostalCode(fromPostalCodeField.getText().toString());
 	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode);
+	        	TextView myAwesomeTextView = (TextView)findViewById(R.id.runResults);
+	        	myAwesomeTextView.setText(deliveryStandardCalculator.getDeliveryStandard() + "!!!");
             }
          });
 	}

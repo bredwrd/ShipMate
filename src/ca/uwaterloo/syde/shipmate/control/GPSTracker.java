@@ -31,7 +31,7 @@ public class GPSTracker extends Service implements LocationListener
     Location location;
     double latitude;
     double longitude;
-
+    
     //The minimum distance to change updates in metters
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; //10 metters
 
