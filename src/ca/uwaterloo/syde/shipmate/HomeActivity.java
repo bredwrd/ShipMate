@@ -13,8 +13,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+/**
+ * HomeActivity
+ * 
+ *
+ */
 public class HomeActivity extends Activity {
-	//TODO TextView updateStatusText;
 	private DeliveryStandardCalculator deliveryStandardCalculator;
 	private GPSTracker gpsTracker;
 	private ProgressBar progress;
@@ -24,22 +28,35 @@ public class HomeActivity extends Activity {
 		super.onCreate(bundle);
 		setContentView(R.layout.home_layout);
 		
+		// Initiate location service.
 		gpsTracker = new GPSTracker(this);
 		
+		// On run_button click, submit origin and destination for processing and display result.
 		Button runButton = (Button) findViewById(R.id.run_button);
 		runButton.setOnClickListener(new Button.OnClickListener() {  
 	        public void onClick(View v)
             {
+	        	// Fetch postal code keys from user input.
 	        	EditText toPostalCodeField = (EditText) findViewById(R.id.to_postal_code);
 	        	EditText fromPostalCodeField = (EditText) findViewById(R.id.from_postal_code);
+	        	
+	        	// Submit origin and destination for processing.
 	        	PostalCode toPostalCode = new PostalCode(toPostalCodeField.getText().toString());
 	        	PostalCode fromPostalCode = new PostalCode(fromPostalCodeField.getText().toString());
 	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode);
-	        	TextView myAwesomeTextView = (TextView)findViewById(R.id.runResults);
-	        	myAwesomeTextView.setText("Delivery Standard: " + deliveryStandardCalculator.getDeliveryStandard());
+	        	TextView resultTextView = (TextView)findViewById(R.id.runResults);
+	        	
+	        	// Get and display result.
+	        	resultTextView.setText("Delivery Standard: " + deliveryStandardCalculator.getDeliveryStandard());
             }
          });
 	}
+	
+	/**
+	 * 
+	 * @param v
+	 * @author Frank Alfieri
+	 */
 	public void AddressButton_OnClick(final View v) {
 		final Context context = this;
 		Thread thread = new Thread(){
@@ -67,7 +84,7 @@ public class HomeActivity extends Activity {
 			editText = (EditText)findViewById(R.id.from_postal_code);
         	progress = (ProgressBar) findViewById(R.id.from_gpsStatusProgress);
         }
-		// start spinning wheel
+		// Start spinning wheel.
         progress.setVisibility(View.VISIBLE);
         thread.start();
 	}
