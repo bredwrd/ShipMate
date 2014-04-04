@@ -27,7 +27,7 @@ public class PostalCode {
 		// set dpf name and if major or non-major
 		major = fsa.getMajor();
 		String dpfKey = fsa.getDpfKey();
-		dpf = new DedicatedProcessingFacility(dpfKey);
+		dpf = NodeDatabase.getDpf(dpfKey);
 		remote = determineIfRemote(fsa, ldu);
 	}
 	

@@ -3,6 +3,7 @@ package ca.uwaterloo.syde.shipmate.control;
 import java.util.Date;
 
 import ca.uwaterloo.syde.shipmate.entity.DedicatedProcessingFacility;
+import ca.uwaterloo.syde.shipmate.entity.NodeDatabase;
 import ca.uwaterloo.syde.shipmate.entity.PostalCode;
 
 public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStandardCalculator {
@@ -25,9 +26,7 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 		
 		// Origin input; common for all destinations and shipping type
 		Date sentDate = selectedInputDate;
-		
-		int sourceIndex = DedicatedProcessingFacility.getIndexOf(origin.getDpf().getKey());
-		int baseTime = dpfGrid[sourceIndex].getBaseTime(userDestinationDpfName);
+		int baseTime = origin.getDpf().getBaseTime(destination.getDpf().getKey());
 		totalTime += baseTime;
 		result = Integer.toString(baseTime);
 		// for now, do not differentiate between which PC (source or dest.)
@@ -55,12 +54,6 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 		result += " business days";
 		
 		return result;
-	}
-	
-	public int getDeliveryStandard() {
-		// TODO Auto-generated method stub
-		// Do stuff with origin, destination PostalCodes and return delivery standard, in business days
-		return 0;
 	}
 	
 }

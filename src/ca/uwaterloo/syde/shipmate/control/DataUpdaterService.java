@@ -32,6 +32,7 @@ import ca.uwaterloo.syde.shipmate.entity.NodeDatabase;
 public class DataUpdaterService {
 	private final String deliveryStandardsDocumentUrl = "https://dl.dropboxusercontent.com/u/28237570/dpfLookup.xml";
 	private final String remoteLookupUrl = "https://dl.dropboxusercontent.com/u/28237570/remoteLookup.xml";
+
 	private HtmlParser htmlParser = new HtmlParser();
 	
 	public DataUpdaterService() {
@@ -47,6 +48,7 @@ public class DataUpdaterService {
 		        	NodeList dpfNodes = htmlParser.parseDpfLookupFile(httpGetRequest(deliveryStandardsDocumentUrl));
 		        	NodeDatabase.setFsaDpfLookup(dpfNodes);
 		        	NodeDatabase.setRemoteLookup(remoteNodes);
+		    		
 		        } catch (Exception e) {
 		            e.printStackTrace();
 		        }
@@ -54,6 +56,7 @@ public class DataUpdaterService {
 		});
 
 		thread.start(); 
+		NodeDatabase.setupDpfGrid();
 	}
 	
 	public String httpGetRequest(String url) throws ClientProtocolException, IOException {
