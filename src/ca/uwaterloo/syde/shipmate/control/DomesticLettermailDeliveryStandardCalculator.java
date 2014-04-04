@@ -3,13 +3,15 @@ package ca.uwaterloo.syde.shipmate.control;
 import java.util.Date;
 
 import ca.uwaterloo.syde.shipmate.entity.DedicatedProcessingFacility;
+import ca.uwaterloo.syde.shipmate.entity.LogEntry;
 import ca.uwaterloo.syde.shipmate.entity.NodeDatabase;
 import ca.uwaterloo.syde.shipmate.entity.PostalCode;
 
 public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStandardCalculator {
 	private PostalCode origin;
 	private PostalCode destination;
-	private Date selectedInputDate = new Date(System.currentTimeMillis());
+	private static final String SHIPPING_TYPE_KEY = "Domestic Lettermail";
+	private Date date = new Date(System.currentTimeMillis());
 	
 	private final int additionalRemoteTime = 4;
 	
@@ -25,7 +27,6 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 		boolean rangedArrivalDate = false;
 		
 		// Origin input; common for all destinations and shipping type
-		Date sentDate = selectedInputDate;
 		int baseTime = origin.getDpf().getBaseTime(destination.getDpf().getKey());
 		totalTime += baseTime;
 		result = Integer.toString(baseTime);
@@ -52,6 +53,7 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 
 		// display resulting output
 		result += " business days";
+		LogEntry logEntry = new LogEntry(origin.getKey(), destination.getKey(), SHIPPING_TYPE_KEY, date.toString(), result);
 		
 		return result;
 	}

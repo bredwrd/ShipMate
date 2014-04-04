@@ -5,11 +5,20 @@ import java.util.regex.Pattern;
 
 import org.w3c.dom.NodeList;
 
+/**
+ * LocalDeliveryUnit stores and determines information related to Local Delivery Units
+ * @author Brian Stock
+ *
+ */
 public class LocalDeliveryUnit {
 	private String key;
 	
 	public String getKey() {
 		return key;
+	}
+	
+	public boolean getRemote(){
+		return true;
 	}
 	
 	public LocalDeliveryUnit(String key){
@@ -53,10 +62,5 @@ public class LocalDeliveryUnit {
 		}
 		
 		return rtnBoolean;
-	}
-	
-	public boolean getRemote(){
-		
-		return true;
 	}
 }

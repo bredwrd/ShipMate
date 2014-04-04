@@ -6,6 +6,11 @@ import java.util.regex.Pattern;
 
 import org.w3c.dom.NodeList;
 
+/**
+ * PostalCode stores and determines data associated with a Postal Code.
+ * 
+ * @author Brian Stock
+ */
 public class PostalCode {
 	private String key;
 	private ForwardStationArea fsa;
@@ -14,6 +19,10 @@ public class PostalCode {
 	private boolean valid;
 	private boolean remote;
 	private boolean major;
+	
+	public String getKey() {
+		return key;
+	}
 	
 	public PostalCode(String keyCandidate){
 		key = sanitizeKey(keyCandidate);
@@ -63,8 +72,9 @@ public class PostalCode {
 		return rtnBoolean;
 	}
 	
-	/*
-	 *  determines if postal code is valid and exists
+	/**
+	 *  determineIfValid determines if postal code is valid and exists
+	 *  key - unique identifier
 	 */
 	private boolean determineIfValid(String key)
 	{
@@ -80,8 +90,8 @@ public class PostalCode {
 		return rtnBoolean;
 	}
 	
-	/*
-	 * selects and returns first 3 alphanumeric chars (AKA FSA)
+	/**
+	 * determineFsaKey selects and returns first 3 alphanumeric chars (AKA FSA)
 	 *  returns "" if a valid FSA isn't found
 	 */
 	private String determineFsaKey(String postalCodeName)
@@ -97,8 +107,8 @@ public class PostalCode {
 		return tmpFsaKey;
 	}
 	
-	/*
-	 *  selects and returns last 3 alphanumeric chars (AKA LDU)
+	/**
+	 *  determineLdu selects and returns last 3 alphanumeric chars (AKA LDU)
 	 *  returns "" if a valid LDU isn't found
 	 */
 	private String determineLdu(String key)
@@ -114,24 +124,12 @@ public class PostalCode {
 		return rtnString;
 	}
 	
-	public boolean isValid(){
-		return false;
-	}
-	
-	public boolean isMajor(){
-		return major;
-	}
-	
-	public boolean isRemote(){
-	
-		return remote;
-	}
-	
-	public DedicatedProcessingFacility getDpf(){
-		
-		return dpf;
-	}
-	
+	/**
+	 * Strips non-alphanumeric characters from a key. The postal code key will be "sanitized" from user input to a proper PC 
+	 * format (e.g. a1a-2b2 -> A1A2B2)
+	 * @param keyCandidate - key to be sanitized
+	 * @return sanitized key
+	 */
 	private String sanitizeKey(String keyCandidate){
 		String sanitizedKey = "";
 		// strip non-alphanumeric chars
@@ -144,6 +142,21 @@ public class PostalCode {
 			sanitizedKey = tmpMatcher.group().toUpperCase(Locale.ENGLISH);
 		}
 		return sanitizedKey;
-		
+	}
+	
+	public boolean isValid(){
+		return false;
+	}
+	
+	public boolean isMajor(){
+		return major;
+	}
+	
+	public boolean isRemote(){
+		return remote;
+	}
+	
+	public DedicatedProcessingFacility getDpf(){
+		return dpf;
 	}
 }

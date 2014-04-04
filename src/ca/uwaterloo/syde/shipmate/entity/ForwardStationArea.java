@@ -10,16 +10,18 @@ import java.util.regex.Pattern;
 
 import org.w3c.dom.NodeList;
 
+/**
+ * ForwardStationArea contains data pertaining to an FSA belonging to a PC.
+ * @author Brian Stock
+ *
+ */
 public class ForwardStationArea {
 
-	// VARIABLES
 
-	private String key = ""; // first three digits of the postal code (e.g.
-									// A0E)
+	private String key = ""; // first three digits of the postal code (e.g. A0E
 	private boolean valid = false; // is format ok (i.e. letter-number-letter)
 	private boolean major = false; // is a major, not a minor FSA
-	private String dpfKey = ""; // Dedicated Processing Facility city name
-									// associated with the FSA
+	private String dpfKey = ""; // Dedicated Processing Facility city/province name
 
 	// GETTERS & SETTERS
 	
@@ -39,15 +41,11 @@ public class ForwardStationArea {
 		return dpfKey;
 	}
 
-	// CONSTRUCTOR
-
 	public ForwardStationArea(String name) {
 		key = name;
 		valid = determineIfValid();
 		determineDpfNameAndIfMajor();
 	}
-
-	// METHODS
 
 	/*
 	 * determines if FSA is in a valid format (e.g. A1A)
@@ -67,7 +65,7 @@ public class ForwardStationArea {
 	}
 
 	/*
-	 * determines and sets dpfName and if major
+	 * determineDpfNameAndIfMajor determines and sets dpfKey and if major
 	 */
 	public void determineDpfNameAndIfMajor() {
 		NodeList dpfNodeData = NodeDatabase.getFsaDpfLookup();

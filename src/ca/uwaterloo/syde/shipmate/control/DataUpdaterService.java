@@ -1,34 +1,24 @@
 package ca.uwaterloo.syde.shipmate.control;
 
 import java.io.BufferedReader;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringReader;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.xpath.XPathFactory;
-
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
-import org.apache.http.NameValuePair;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
-import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
-import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
-import org.xml.sax.InputSource;
-
 import ca.uwaterloo.syde.shipmate.entity.NodeDatabase;
 
+/**
+ * DataUpdaterService performs dirty work of subscribing to a networked data source.
+ * @author Brian Stock
+ *
+ */
 public class DataUpdaterService {
 	private final String deliveryStandardsDocumentUrl = "https://dl.dropboxusercontent.com/u/28237570/dpfLookup.xml";
 	private final String remoteLookupUrl = "https://dl.dropboxusercontent.com/u/28237570/remoteLookup.xml";
@@ -39,6 +29,9 @@ public class DataUpdaterService {
 		
 	}
 	
+	/**
+	 * updateNodeSources fetches and savesxml data tables
+	 */
 	public void updateNodeSources() {
 		Thread thread = new Thread(new Runnable(){
 		    @Override
@@ -59,7 +52,14 @@ public class DataUpdaterService {
 		NodeDatabase.setupDpfGrid();
 	}
 	
-	public String httpGetRequest(String url) throws ClientProtocolException, IOException {
+	/**
+	 * httpGetRequest requests web resources.
+	 * @param url - URL of resource to request
+	 * @return html source of the data source
+	 * @throws ClientProtocolException
+	 * @throws IOException
+	 */
+	private String httpGetRequest(String url) throws ClientProtocolException, IOException {
 		
 		HttpClient httpclient = new DefaultHttpClient(); // Create HTTP Client
 		HttpGet httpget = new HttpGet(url); // Set the action you want to do

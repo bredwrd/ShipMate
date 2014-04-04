@@ -18,14 +18,19 @@ import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
 
-/*
- * This class parses local html tables into RAM for use by the application's
+/**
+ * HTML class parses HTML tables into plain-old Java objects for use by the application's
  * various lookups.
  */
 public class HtmlParser {
 	private static NodeList remoteLookup;
 	private static NodeList dpfLookup;
 		
+	/**
+	 * parseRemoteLookupFile parses an HTML remote postal code lookup table into a plain-old Java NodeList
+	 * @param remoteXml - resource containing an HTML DPF lookup table
+	 * @return set of xPath-parseable XML nodes
+	 */
 	public NodeList parseRemoteLookupFile(String remoteXml) {
 		Object result = null;
 		try {
@@ -60,9 +65,13 @@ public class HtmlParser {
 		return remoteLookup;
 	}
 
+	/**
+	 * parseDpfLookupFile parses an HTML DPF lookup table into a plain-old Java NodeList
+	 * @param dpfXml - resource containing an HTML DPF lookup table
+	 * @return set of xPath-parseable XML nodes
+	 */
 	public NodeList parseDpfLookupFile(String dpfXml)
 	{
-		System.out.println(dpfXml);
 		Object result = null;
 		try {
 			DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
