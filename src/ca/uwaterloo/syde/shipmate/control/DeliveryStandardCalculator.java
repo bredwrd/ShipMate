@@ -5,7 +5,7 @@ import java.util.HashSet;
 
 public class DeliveryStandardCalculator {
 	protected String deliveryStandard;
-	protected String getDeliveryStandard() {
+	public String getDeliveryStandard() {
 		return deliveryStandard;
 	}
 	
