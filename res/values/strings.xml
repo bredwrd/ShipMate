@@ -8,5 +8,7 @@
     <string name="address_text">Address</string>
     <string name="run_button_text">Run</string>
     <string name="res">Find to location</string>
+    <string name="history_button_text">View History</string>
+    
 	
 </resources>

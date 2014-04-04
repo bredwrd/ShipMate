@@ -129,6 +129,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:hint="@string/run_button_text" />
+    <Button
+        android:id="@+id/view_history_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="@string/history_button_text" />
 
 </LinearLayout>
 </ScrollView>

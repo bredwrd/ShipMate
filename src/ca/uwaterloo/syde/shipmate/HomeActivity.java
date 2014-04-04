@@ -6,6 +6,7 @@ import ca.uwaterloo.syde.shipmate.control.GPSTracker;
 import ca.uwaterloo.syde.shipmate.entity.PostalCode;
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class HomeActivity extends Activity {
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		setContentView(R.layout.home_layout);
+		context = this;
 		
 		// Initiate location service.
 		gpsTracker = new GPSTracker(this);
@@ -49,6 +51,16 @@ public class HomeActivity extends Activity {
 	        	
 	        	// Get and display result.
 	        	resultTextView.setText("Delivery Standard: " + deliveryStandardCalculator.getDeliveryStandard());
+            }
+         });
+		
+		// On view_history_button click, displays history of past run events.
+		Button historyButton = (Button) findViewById(R.id.view_history_button);
+		historyButton.setOnClickListener(new Button.OnClickListener() {  
+	        public void onClick(View v)
+            {
+	        	Intent intent = new Intent(context, LogViewActivity.class);
+			    startActivity(intent);
             }
          });
 	}
