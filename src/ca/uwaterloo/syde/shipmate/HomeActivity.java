@@ -23,6 +23,7 @@ public class HomeActivity extends Activity {
 	private GPSTracker gpsTracker;
 	private ProgressBar progress;
 	private EditText editText;
+	private Context context;
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
@@ -43,7 +44,7 @@ public class HomeActivity extends Activity {
 	        	// Submit origin and destination for processing.
 	        	PostalCode toPostalCode = new PostalCode(toPostalCodeField.getText().toString());
 	        	PostalCode fromPostalCode = new PostalCode(fromPostalCodeField.getText().toString());
-	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode);
+	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode, context);
 	        	TextView resultTextView = (TextView)findViewById(R.id.runResults);
 	        	
 	        	// Get and display result.

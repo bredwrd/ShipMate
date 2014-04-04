@@ -49,7 +49,7 @@ public class LogDatabase extends SQLiteOpenHelper {
 	}
 	
     // Adding new contact
-    void addEntry(LogEntry logEntry) {
+    public void addEntry(LogEntry logEntry) {
         SQLiteDatabase db = this.getWritableDatabase();
  
         // Define stored values
