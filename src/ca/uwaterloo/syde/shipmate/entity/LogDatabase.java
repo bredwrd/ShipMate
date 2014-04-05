@@ -24,8 +24,8 @@ public class LogDatabase extends SQLiteOpenHelper {
 	private static final String KEY_DESTINATION = "Destination";
 	private static final String KEY_SHIPPING_TYPE="ShippingType";
 	private static final String KEY_DATE="Date";
-	private static final String KEY_DELIVERY_STANDARD = "DELIVERY STANDARD";
-	private static final int DATABASE_VERSION = 1;
+	private static final String KEY_DELIVERY_STANDARD = "DeliveryStandard";
+	private static final int DATABASE_VERSION = 4;
 
     public LogDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -35,7 +35,7 @@ public class LogDatabase extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
         String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_LOG + "("
                 + KEY_ID + " INTEGER PRIMARY KEY," + KEY_ORIGIN + " TEXT,"
-                + KEY_DESTINATION + " TEXT," + KEY_SHIPPING_TYPE + " TEXT," + KEY_DELIVERY_STANDARD + KEY_DATE + " TEXT" + ")";
+                + KEY_DESTINATION + " TEXT," + KEY_SHIPPING_TYPE + " TEXT," + KEY_DELIVERY_STANDARD + " TEXT,"+ KEY_DATE + " TEXT" + ")";
         db.execSQL(CREATE_CONTACTS_TABLE);
 	}
 

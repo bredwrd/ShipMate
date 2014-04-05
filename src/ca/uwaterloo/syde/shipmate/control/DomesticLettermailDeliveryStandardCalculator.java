@@ -18,15 +18,14 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 	private PostalCode destination;
 	private static final String SHIPPING_TYPE_KEY = "Domestic Lettermail";
 	private Date date = new Date(System.currentTimeMillis());
-	private Context context;
-	
+	LogDatabase logDb;
+
 	private final int additionalRemoteTime = 4;
-	LogDatabase logDb = new LogDatabase(context);
 	
 	public DomesticLettermailDeliveryStandardCalculator(PostalCode origin, PostalCode destination, Context context) {
 		this.origin = origin;
 		this.destination = destination;
-		this.context = context;
+		logDb = new LogDatabase(context);
 		deliveryStandard = determineDeliveryStandard(origin, destination);
 	}
 	
