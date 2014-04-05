@@ -25,7 +25,7 @@ public class LogDatabase extends SQLiteOpenHelper {
 	private static final String KEY_SHIPPING_TYPE="ShippingType";
 	private static final String KEY_DATE="Date";
 	private static final String KEY_DELIVERY_STANDARD = "DeliveryStandard";
-	private static final int DATABASE_VERSION = 4;
+	private static final int DATABASE_VERSION = 7;
 
     public LogDatabase(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -58,6 +58,7 @@ public class LogDatabase extends SQLiteOpenHelper {
         values.put(KEY_DESTINATION, logEntry.getDestination());
         values.put(KEY_SHIPPING_TYPE, logEntry.getShippingType());
         values.put(KEY_DELIVERY_STANDARD, logEntry.getDeliveryStandard());
+        values.put(KEY_DATE, logEntry.getDate());
  
         // Inserting Row
         db.insert(TABLE_LOG, null, values);
@@ -76,7 +77,12 @@ public class LogDatabase extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                LogEntry logEntry = new LogEntry(cursor.getString(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
+            	System.out.println(cursor.getString(0));
+            	System.out.println(cursor.getString(1));
+            	System.out.println(cursor.getString(2));
+            	System.out.println(cursor.getString(3));
+            	System.out.println(cursor.getString(4));
+                LogEntry logEntry = new LogEntry(cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(5), cursor.getString(4));
                 // Adding entry to list
                 entryList.add(logEntry);
             } while (cursor.moveToNext());

@@ -59,6 +59,7 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 			result += " to " + Integer.toString(baseTime + additionalRemoteTime);
 		} else
 		{
+			
 		}
 
 		// display resulting output

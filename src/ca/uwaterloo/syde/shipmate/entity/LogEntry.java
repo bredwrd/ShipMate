@@ -1,7 +1,11 @@
 package ca.uwaterloo.syde.shipmate.entity;
 
+/**
+ * LogEntry represents a recorded delivery standard log entry
+ * @author Brian Stock
+ *
+ */
 public class LogEntry {
-
 	private String origin;
 	private String destination;
 	private String shippingType;
