@@ -24,12 +24,10 @@ public class HomeActivity extends Activity {
 	private GPSTracker gpsTracker;
 	private ProgressBar progress;
 	private EditText editText;
-	private Context context;
 	
 	public void onCreate(Bundle bundle) {
 		super.onCreate(bundle);
 		setContentView(R.layout.home_layout);
-		context = this;
 		
 		// Initiate location service.
 		gpsTracker = new GPSTracker(this);
@@ -46,7 +44,7 @@ public class HomeActivity extends Activity {
 	        	// Submit origin and destination for processing.
 	        	PostalCode toPostalCode = new PostalCode(toPostalCodeField.getText().toString());
 	        	PostalCode fromPostalCode = new PostalCode(fromPostalCodeField.getText().toString());
-	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode, context);
+	        	deliveryStandardCalculator = new DomesticLettermailDeliveryStandardCalculator(toPostalCode, fromPostalCode, v.getContext());
 	        	TextView resultTextView = (TextView)findViewById(R.id.runResults);
 	        	
 	        	// Get and display result.
@@ -59,7 +57,7 @@ public class HomeActivity extends Activity {
 		historyButton.setOnClickListener(new Button.OnClickListener() {  
 	        public void onClick(View v)
             {
-	        	Intent intent = new Intent(context, LogViewActivity.class);
+	        	Intent intent = new Intent(v.getContext(), LogViewActivity.class);
 			    startActivity(intent);
             }
          });
