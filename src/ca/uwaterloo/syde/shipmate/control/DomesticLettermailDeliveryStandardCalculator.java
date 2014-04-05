@@ -65,6 +65,7 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 		result += " business days";
 		LogEntry logEntry = new LogEntry(origin.getKey(), destination.getKey(), SHIPPING_TYPE_KEY, date.toString(), result);
 		logDb.addEntry(logEntry);
+		logDb.close();
 		return result;
 	}
 	
