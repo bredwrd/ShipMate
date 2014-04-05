@@ -25,8 +25,8 @@
   <class id="3" language="java" name="ca.uwaterloo.syde.shipmate.control.GPSTracker" project="UpdateManagerActivity" 
     file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/control/GPSTracker.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="808" y="323"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+    <position height="514" width="255" x="697" y="9"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
@@ -67,7 +67,7 @@
     project="UpdateManagerActivity" 
     file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/entity/ForwardStationArea.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="147" y="1065"/>    
+    <position height="-1" width="-1" x="152" y="1102"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -86,7 +86,7 @@
   <class id="9" language="java" name="ca.uwaterloo.syde.shipmate.entity.NodeDatabase" project="UpdateManagerActivity" 
     file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/entity/NodeDatabase.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="769" y="1023"/>    
+    <position height="-1" width="-1" x="605" y="994"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -108,7 +108,7 @@
     project="UpdateManagerActivity" 
     file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/entity/LocalDeliveryUnit.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="435" y="1060"/>    
+    <position height="-1" width="-1" x="445" y="1259"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
       visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,87 +126,123 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <association id="13">    
+  <class id="13" language="java" name="ca.uwaterloo.syde.shipmate.LogViewActivity" project="UpdateManagerActivity" 
+    file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/LogViewActivity.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1049" y="168"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="ca.uwaterloo.syde.shipmate.entity.LogDatabase" project="UpdateManagerActivity" 
+    file="/UpdateManagerActivity/src/ca/uwaterloo/syde/shipmate/entity/LogDatabase.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="940" y="730"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" accessors="true" 
+      visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <association id="15">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="14" name="ldu"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
+      <attribute id="16" name="ldu"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="16">    
+  <association id="18">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="17" name="fsa"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
+      <attribute id="19" name="fsa"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="7" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="19">    
+  <association id="21">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="22" name="dbh"/>      
+      <multiplicity id="23" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="24">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="20" name="gpsTracker"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
+      <attribute id="25" name="gpsTracker"/>      
+      <multiplicity id="26" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="3" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="22">    
+  <association id="27">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="28" name="logDb"/>      
+      <multiplicity id="29" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="14" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="30">    
     <end type="SOURCE" refId="9" navigable="false">      
-      <attribute id="23" name="dpfGrid"/>      
-      <multiplicity id="24" minimum="0" maximum="2147483647"/>    
+      <attribute id="31" name="dpfGrid"/>      
+      <multiplicity id="32" minimum="0" maximum="2147483647"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
+  <association id="33">    
     <bendpoint x="266" y="538"/>    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="26" name="destination"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="34" name="destination"/>      
+      <multiplicity id="35" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="28">    
+  <association id="36">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="29" name="dataUpdaterService"/>      
-      <multiplicity id="30" minimum="0" maximum="1"/>    
+      <attribute id="37" name="dataUpdaterService"/>      
+      <multiplicity id="38" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="31">    
+  <association id="39">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="32" name="origin"/>      
-      <multiplicity id="33" minimum="0" maximum="1"/>    
+      <attribute id="40" name="origin"/>      
+      <multiplicity id="41" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="6" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="34">    
+  <generalization id="42">    
     <end type="SOURCE" refId="12"/>    
     <end type="TARGET" refId="1"/>  
   </generalization>  
-  <association id="35">    
+  <association id="43">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="36" name="dpf"/>      
-      <multiplicity id="37" minimum="0" maximum="1"/>    
+      <attribute id="44" name="dpf"/>      
+      <multiplicity id="45" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="5" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="38">    
+  <association id="46">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="39" name="htmlParser"/>      
-      <multiplicity id="40" minimum="0" maximum="1"/>    
+      <attribute id="47" name="htmlParser"/>      
+      <multiplicity id="48" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="41">    
+  <association id="49">    
     <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="42" name="deliveryStandardCalculator"/>      
-      <multiplicity id="43" minimum="0" maximum="1"/>    
+      <attribute id="50" name="deliveryStandardCalculator"/>      
+      <multiplicity id="51" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  

@@ -13,13 +13,15 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 public class LogViewActivity extends Activity {
+	
+	LogDatabase dbh;
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.log_layout);
          
         // Read database.
-        LogDatabase dbh = new LogDatabase(this);
+        dbh = new LogDatabase(this);
         SQLiteDatabase db = null;
         try {
         	db = dbh.getReadableDatabase();
