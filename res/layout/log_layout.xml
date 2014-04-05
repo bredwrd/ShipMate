@@ -15,22 +15,22 @@
 	            android:hint="To"            
 	            android:textSize="15sp"
 		        android:textStyle="bold"
-		        android:layout_marginRight="25dp"/>
+		        android:layout_marginRight="30dp"/>
 		    <TextView
 		        android:hint="From"            
 	            android:textSize="15sp"
 		        android:textStyle="bold"
-		        android:layout_marginRight="25dp"/>
+		        android:layout_marginRight="15dp"/>
 		    <TextView
 		        android:hint="Standard"            
 	            android:textSize="15sp"
 		        android:textStyle="bold"
-		        android:layout_marginRight="25dp"/>
+		        android:layout_marginRight="20dp"/>
 		    <TextView
 		        android:hint="Type"            
 	            android:textSize="15sp"
 		        android:textStyle="bold"
-		        android:layout_marginRight="25dp"/>
+		        android:layout_marginRight="65dp"/>
 		    <TextView
 		        android:hint="Date"            
 	            android:textSize="15sp"

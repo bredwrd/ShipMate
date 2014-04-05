@@ -1,9 +1,9 @@
 package ca.uwaterloo.syde.shipmate.control;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.content.Context;
-
 import ca.uwaterloo.syde.shipmate.entity.LogDatabase;
 import ca.uwaterloo.syde.shipmate.entity.LogEntry;
 import ca.uwaterloo.syde.shipmate.entity.PostalCode;
@@ -64,7 +64,8 @@ public class DomesticLettermailDeliveryStandardCalculator extends DeliveryStanda
 
 		// display resulting output
 		result += " business days";
-		LogEntry logEntry = new LogEntry(origin.getKey(), destination.getKey(), SHIPPING_TYPE_KEY, date.toString(), result);
+		String date = new SimpleDateFormat("yyyy-MM-dd").format(this.date);
+		LogEntry logEntry = new LogEntry(origin.getKey(), destination.getKey(), SHIPPING_TYPE_KEY, date, result);
 		logDb.addEntry(logEntry);
 		logDb.close();
 		return result;
