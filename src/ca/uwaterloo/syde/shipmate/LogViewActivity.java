@@ -25,7 +25,7 @@ public class LogViewActivity extends Activity {
         
         for (LogEntry en: entries) {
             // Inflate your row "template" and fill out the fields.
-            TableRow row = (TableRow)LayoutInflater.from(LogViewActivity.this).inflate(R.layout.log_layout, null);
+            TableRow row = (TableRow)LayoutInflater.from(LogViewActivity.this).inflate(R.id.attrib_row, null);
             ((TextView)row.findViewById(R.id.attrib_to)).setText(en.getOrigin());
             ((TextView)row.findViewById(R.id.attrib_from)).setText(en.getDestination());
             ((TextView)row.findViewById(R.id.attrib_delivery_standard)).setText(en.getDeliveryStandard());

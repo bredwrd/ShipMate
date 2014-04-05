@@ -15,12 +15,13 @@ public final class R {
         public static final int map_pin=0x7f020001;
     }
     public static final class id {
-        public static final int attrib_date=0x7f060013;
-        public static final int attrib_delivery_standard=0x7f060011;
-        public static final int attrib_from=0x7f060010;
+        public static final int attrib_date=0x7f060014;
+        public static final int attrib_delivery_standard=0x7f060012;
+        public static final int attrib_from=0x7f060011;
+        public static final int attrib_row=0x7f06000f;
         public static final int attrib_table=0x7f06000e;
-        public static final int attrib_to=0x7f06000f;
-        public static final int attrib_type=0x7f060012;
+        public static final int attrib_to=0x7f060010;
+        public static final int attrib_type=0x7f060013;
         public static final int from_button=0x7f060008;
         public static final int from_gpsStatusProgress=0x7f060007;
         public static final int from_postal_code=0x7f060006;
@@ -34,8 +35,8 @@ public final class R {
         public static final int to_button=0x7f060004;
         public static final int to_gpsStatusProgress=0x7f060003;
         public static final int to_postal_code=0x7f060002;
-        public static final int updateStatusProgress=0x7f060014;
-        public static final int updateStatusText=0x7f060015;
+        public static final int updateStatusProgress=0x7f060015;
+        public static final int updateStatusText=0x7f060016;
         public static final int view_history_button=0x7f06000d;
     }
     public static final class layout {

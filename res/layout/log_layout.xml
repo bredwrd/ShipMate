@@ -6,6 +6,7 @@
     >
 
     <TableLayout
+        android:id="@+id/attrib_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
 
@@ -35,7 +36,7 @@
 	            android:textSize="15sp"
 		        android:textStyle="bold"/>
 		</TableRow>
-		<TableRow android:id="@+id/attrib_table">
+		<TableRow android:id="@+id/attrib_row">
 		    <TextView
 		        android:id="@+id/attrib_to"/>
 		    <TextView
