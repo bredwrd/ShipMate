@@ -8,7 +8,6 @@ import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -28,13 +27,15 @@ public class LogViewActivity extends Activity {
 	        TableLayout table = (TableLayout)LogViewActivity.this.findViewById(R.id.attrib_table);
 	        
 	        for (LogEntry en: entries) {
-	            // Inflate your row "template" and fill out the fields.
-	            TableRow row = (TableRow)LayoutInflater.from(LogViewActivity.this).inflate(R.id.attrib_row, null);
-	            ((TextView)row.findViewById(R.id.attrib_to)).setText(en.getOrigin());
-	            ((TextView)row.findViewById(R.id.attrib_from)).setText(en.getDestination());
-	            ((TextView)row.findViewById(R.id.attrib_delivery_standard)).setText(en.getDeliveryStandard());
-	            ((TextView)row.findViewById(R.id.attrib_type)).setText(en.getShippingType());
-	            ((TextView)row.findViewById(R.id.attrib_date)).setText(en.getDate());
+	            //Fill out the fields.
+	        	String tmpString = en.getOrigin();
+	        	TableRow row= new TableRow(this);
+	        	TextView tv = (TextView)findViewById(R.id.attrib_to);
+	            tv.setText(tmpString);
+	            ((TextView)findViewById(R.id.attrib_from)).setText(en.getDestination());
+	            ((TextView)findViewById(R.id.attrib_delivery_standard)).setText(en.getDeliveryStandard());
+	            ((TextView)findViewById(R.id.attrib_type)).setText(en.getShippingType());
+	            ((TextView)findViewById(R.id.attrib_date)).setText(en.getDate());
 	            table.addView(row);
 	        }
         } catch(SQLiteException e) {
